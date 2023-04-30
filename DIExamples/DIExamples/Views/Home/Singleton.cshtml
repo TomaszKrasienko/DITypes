@@ -1,11 +1,12 @@
-@model string
+@model BaseViewModel
 @{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="row">
     <div class="col-md-10 offset-1 text-center">
-        <h2>Guid on page: @Model</h2>
+        <h3>Guid from service: @Model.GuidFromService</h3>
+        <h3>Guid from helper: @Model.GuidFromHelper</h3>
         <partial name="_Singleton"/>
     </div>
 </div>
@@ -17,6 +18,6 @@
 </div>
 <div class="row">
     <div class="col-md-4 offset-4">
-        <a asp-action="Scoped" class="btn btn-outline-primary full-width">Odśwież</a>
+        <a asp-action="Singleton" class="btn btn-outline-primary full-width">Odśwież</a>
     </div>
 </div>

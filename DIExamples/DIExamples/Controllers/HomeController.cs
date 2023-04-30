@@ -11,16 +11,19 @@ public class HomeController : Controller
     private readonly ISingletonService _singletonService;
     private readonly IScopedService _scopedService;
     private readonly ITransientService _transientService;
+    private readonly IHelper _helper;
     public HomeController(
         ILogger<HomeController> logger,
         ISingletonService singletonService,
         IScopedService scopedService,
-        ITransientService transientService)
+        ITransientService transientService,
+        IHelper helper)
     {
         _logger = logger;
         _singletonService = singletonService;
         _scopedService = scopedService;
         _transientService = transientService;
+        _helper = helper;
     }
     public IActionResult Index()
     {
@@ -28,17 +31,32 @@ public class HomeController : Controller
     }
     public IActionResult Singleton()
     {
-        return View(nameof(Singleton), _singletonService.GetStringGuid());
+        BaseViewModel baseViewModel = new()
+        {
+            GuidFromHelper = _helper.GetSingleton(),
+            GuidFromService = _singletonService.GetStringGuid()
+        };
+        return View(nameof(Singleton), baseViewModel);
     }
 
     public IActionResult Scoped()
     {
-        return View(nameof(Scoped), _scopedService.GetStringGuid());
+        BaseViewModel baseViewModel = new()
+        {
+            GuidFromHelper = _helper.GetScoped(),
+            GuidFromService = _scopedService.GetStringGuid()
+        };
+        return View(nameof(Scoped), baseViewModel);
     }
 
     public IActionResult Transient()
     {
-        return View(nameof(Transient), _scopedService.GetStringGuid());
+        BaseViewModel baseViewModel = new()
+        {
+            GuidFromHelper = _helper.GetTransient(),
+            GuidFromService = _transientService.GetStringGuid()
+        };
+        return View(nameof(Transient),  baseViewModel);
     }
 }
 

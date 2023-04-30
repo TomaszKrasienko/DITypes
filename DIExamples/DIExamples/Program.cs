@@ -1,4 +1,5 @@
-﻿using DIExamples.Services;
+﻿using DIExamples;
+using DIExamples.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<ISingletonService, SingletonService>();
 builder.Services.AddScoped<IScopedService, ScopedService>();
 builder.Services.AddTransient<ITransientService, TransientService>();
+builder.Services.AddTransient<IHelper, Helper>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
