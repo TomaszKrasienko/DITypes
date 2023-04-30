@@ -22,12 +22,16 @@ public class HomeController : Controller
         _scopedService = scopedService;
         _transientService = transientService;
     }
-
+    
     public IActionResult Index()
     {
         return View();
     }
 
+    public IActionResult Singleton()
+    {
+        return View(_singletonService.GetStringGuid());
+    }
     public IActionResult Privacy()
     {
         return View();
