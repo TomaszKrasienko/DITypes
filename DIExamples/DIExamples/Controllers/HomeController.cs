@@ -22,25 +22,13 @@ public class HomeController : Controller
         _scopedService = scopedService;
         _transientService = transientService;
     }
-    
     public IActionResult Index()
     {
         return View();
     }
-
     public IActionResult Singleton()
     {
         return View(_singletonService.GetStringGuid());
-    }
-    public IActionResult Privacy()
-    {
-        return View();
-    }
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }
 
