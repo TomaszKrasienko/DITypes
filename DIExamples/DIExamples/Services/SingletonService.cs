@@ -2,7 +2,7 @@ namespace DIExamples.Services;
 
 public class SingletonService : ISingletonService
 {
-    private Guid _guidField;
+    private readonly Guid _guidField;
     public SingletonService()
     {
         _guidField = Guid.NewGuid();

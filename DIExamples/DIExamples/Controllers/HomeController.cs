@@ -28,7 +28,12 @@ public class HomeController : Controller
     }
     public IActionResult Singleton()
     {
-        return View(_singletonService.GetStringGuid());
+        return View(nameof(Singleton), _singletonService.GetStringGuid());
+    }
+
+    public IActionResult Scoped()
+    {
+        return View(nameof(Scoped), _scopedService.GetStringGuid());
     }
 }
 
