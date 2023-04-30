@@ -1,7 +1,22 @@
 @model string
 @{
-    Layout = null;
+    ViewData["Title"] = "Home Page";
 }
 
-<h1>Guid on page: @Model</h1>
-<partial name="_Scoped"/>
+<div class="row">
+    <div class="col-md-10 offset-1 text-center">
+        <h2>Guid on page: @Model</h2>
+        <partial name="_Scoped"/>
+    </div>
+</div>
+<p></p>
+<div class="row">
+    <div class="col-md-4 offset-4">
+        <a asp-action="Index" class="btn btn-primary full-width">Powrót</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4 offset-4">
+        <a asp-action="Scoped" class="btn btn-outline-primary full-width">Odśwież</a>
+    </div>
+</div>
