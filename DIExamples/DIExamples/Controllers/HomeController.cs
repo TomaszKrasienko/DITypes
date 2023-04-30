@@ -35,5 +35,10 @@ public class HomeController : Controller
     {
         return View(nameof(Scoped), _scopedService.GetStringGuid());
     }
+
+    public IActionResult Transient()
+    {
+        return View(nameof(Transient), _scopedService.GetStringGuid());
+    }
 }
 
