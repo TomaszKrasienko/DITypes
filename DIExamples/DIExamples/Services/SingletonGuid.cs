@@ -1,6 +1,6 @@
 namespace DIExamples.Services;
 
-public class SingletonGuid : IService
+public class SingletonGuid : ISingletonService
 {
     private Guid _guidField;
     public SingletonGuid()

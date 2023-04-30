@@ -1,6 +1,6 @@
 namespace DIExamples.Services;
 
-public class TransientService : IService
+public class TransientService : ITransientService
 {
     private Guid _guidField;
     public TransientService()

@@ -1,6 +1,6 @@
 namespace DIExamples.Services;
 
-public class ScopedService : IService
+public class ScopedService : IScopedService
 {
     private Guid _guidField;
     public ScopedService()
